@@ -36,7 +36,7 @@ table _Metrixs
 		lineageTag: 62ee0993-e4da-441b-9b76-3f538a9c6aa2
 
 	measure 'Revenue.QoQ' = CALCULATE([Revenue], DATEADD(D_Calendar[Date], -1, QUARTER))
-		formatString: #,0
+		formatString: 0
 		lineageTag: 27111071-5ec1-47f6-8d32-2549640f3edf
 
 	measure 'Orders.QoQ%' = ```
@@ -54,6 +54,62 @@ table _Metrixs
 			```
 		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: cbc6f4ee-5742-4f76-bf82-3e250dbe7213
+
+	measure AOV = [Revenue] / [Orders]
+		formatString: 0.0
+		lineageTag: 427dc0df-6697-4aa0-a726-0fd116c94275
+
+	measure 'Revenue.QoQ%' = ```
+			
+			VAR _previousQuarterRevenue = 
+			    CALCULATE(
+			        [Revenue],
+			        DATEADD(D_Calendar[Date], -1, QUARTER)
+			    )
+			RETURN 
+			    DIVIDE(
+			        [Revenue] - _previousQuarterRevenue,
+			        _previousQuarterRevenue
+			    )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 54646f4a-d8dd-4e6c-94db-37b555de6e2d
+
+	measure 'AOV.QoQ%' = ```
+			
+			VAR _previousQuarterAOA = 
+			    CALCULATE(
+			        [AOV],
+			        DATEADD(D_Calendar[Date], -1, QUARTER)
+			    )
+			RETURN 
+			    DIVIDE(
+			        [AOV] - _previousQuarterAOA,
+			        _previousQuarterAOA
+			    )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f1f28d6a-7e9f-421e-9cdd-6f8551d28884
+
+	measure Customers = DISTINCTCOUNT(D_Customers[customer_unique_id])
+		formatString: #,0
+		lineageTag: 3b4f5b6e-497b-40d5-b462-ef054549c9ed
+
+	measure 'Customers.QoQ%' = ```
+			
+			VAR _previousQuarterCustomers = 
+			    CALCULATE(
+			        [Customers],
+			        DATEADD(D_Calendar[Date], -1, QUARTER)
+			    )
+			RETURN 
+			    DIVIDE(
+			        [Customers] - _previousQuarterCustomers,
+			        _previousQuarterCustomers
+			    )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 46b34217-185e-4c58-9a2e-18faaf433e02
 
 	column Column
 		isHidden

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "0c746c244a9ec3c490c0",
   "position": {
-    "x": 22.103664223850764,
-    "y": 101.30846102598267,
+    "x": 22,
+    "y": 102,
     "z": 2000,
-    "height": 186.03917388407726,
-    "width": 403.39187208527642,
+    "height": 170,
+    "width": 805,
     "tabOrder": 2000
   },
   "visual": {
@@ -42,6 +42,34 @@
               },
               "queryRef": "_Metrixs.Orders",
               "nativeQueryRef": "Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrixs"
+                    }
+                  },
+                  "Property": "AOV"
+                }
+              },
+              "queryRef": "_Metrixs.AOV",
+              "nativeQueryRef": "AOV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrixs"
+                    }
+                  },
+                  "Property": "Customers"
+                }
+              },
+              "queryRef": "_Metrixs.Customers",
+              "nativeQueryRef": "Customers"
             }
           ]
         }
@@ -94,6 +122,20 @@
           "selector": {
             "metadata": "_Metrixs.Orders"
           }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Customers"
+          }
         }
       ],
       "label": [
@@ -130,6 +172,20 @@
           },
           "selector": {
             "metadata": "_Metrixs.Orders"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'평균 주문 금액'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.AOV"
           }
         }
       ],
@@ -208,6 +264,36 @@
           }
         },
         {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-33bbc5ff-183a-15e3-afa9-1b23f12fe5ec",
+            "order": 0
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-d8b678f4-f594-4200-e428-2712b75f2472",
+            "order": 0
+          }
+        },
+        {
           "properties": {
             "value": {
               "expr": {
@@ -217,7 +303,7 @@
                       "Entity": "_Metrixs"
                     }
                   },
-                  "Property": "Revenue.QoQ"
+                  "Property": "Revenue.QoQ%"
                 }
               }
             }
@@ -231,7 +317,63 @@
               }
             ],
             "metadata": "_Metrixs.Revenue",
-            "id": "field-33bbc5ff-183a-15e3-afa9-1b23f12fe5ec",
+            "id": "field-7fcbcc81-2b7e-a606-cea4-84213df31d88",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrixs"
+                    }
+                  },
+                  "Property": "AOV.QoQ%"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.AOV",
+            "id": "field-bad6924c-8d4a-a8f0-8430-d2d4b1f21f5f",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrixs"
+                    }
+                  },
+                  "Property": "Customers.QoQ%"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Customers",
+            "id": "field-6f59174e-6974-924a-8a20-5ea3f6b882f4",
             "order": 0
           }
         }
@@ -324,6 +466,94 @@
             "metadata": "_Metrixs.Orders",
             "id": "field-86276bcc-de0c-445d-96ad-a35aebff5566"
           }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-d8b678f4-f594-4200-e428-2712b75f2472"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-7fcbcc81-2b7e-a606-cea4-84213df31d88"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.AOV",
+            "id": "field-bad6924c-8d4a-a8f0-8430-d2d4b1f21f5f"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Customers",
+            "id": "field-6f59174e-6974-924a-8a20-5ea3f6b882f4"
+          }
         }
       ]
     },
@@ -370,6 +600,34 @@
               }
             },
             "Property": "Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "aac2d923482c14ae8b4d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrixs"
+              }
+            },
+            "Property": "AOV"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bffd5809ed94f0f5015d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrixs"
+              }
+            },
+            "Property": "Customers"
           }
         },
         "type": "Advanced"
