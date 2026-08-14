@@ -1,0 +1,283 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "bb493cfbe5b57f882a6e",
+  "position": {
+    "x": 1406.6666666666667,
+    "y": 101.66666666666667,
+    "z": 8001,
+    "height": 170,
+    "width": 495,
+    "tabOrder": 8001
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Logistics.Delivered.Completed"
+                }
+              },
+              "queryRef": "_Metrix.Logistics.Delivered.Completed",
+              "nativeQueryRef": "Logistics.Delivered.Completed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Logistics.Delivered.OnTime"
+                }
+              },
+              "queryRef": "_Metrix.Logistics.Delivered.OnTime",
+              "nativeQueryRef": "Logistics.Delivered.OnTime"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Metrix"
+                  }
+                },
+                "Property": "Logistics.Delivered.Completed"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Logistics.Delivered.Completed"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "-1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Logistics.Delivered.OnTime"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'배송 완료 건수'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Logistics.Delivered.Completed"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'예상 배송일 완료 건수'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Logistics.Delivered.OnTime"
+          }
+        }
+      ],
+      "referenceLabel": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Logistics.Delivered.OnTime%"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrix.Logistics.Delivered.OnTime",
+            "id": "field-3e4bc89a-3c8d-f499-1488-443277542b21",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Logistics.Delivered.Completed%"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrix.Logistics.Delivered.Completed",
+            "id": "field-25cc6c80-ebb3-9601-b2dd-e873509614f2",
+            "order": 0
+          }
+        }
+      ],
+      "referenceLabelTitle": [
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'배송 완료 건수 대비 비율'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Logistics.Delivered.OnTime",
+            "id": "field-3e4bc89a-3c8d-f499-1488-443277542b21"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'주문 건수 대비 완료 건수'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Logistics.Delivered.Completed",
+            "id": "field-25cc6c80-ebb3-9601-b2dd-e873509614f2"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "004d553feb1a3033ec8c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrix"
+              }
+            },
+            "Property": "Logistics.Delivered.Completed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "31491a6725e65c67aa98",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrix"
+              }
+            },
+            "Property": "Logistics.Delivered.OnTime"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

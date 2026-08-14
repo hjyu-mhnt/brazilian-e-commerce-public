@@ -1,22 +1,26 @@
-table _Metrixs
+table _Metrix
 	lineageTag: b0b5ce07-e348-4cd2-8012-2c787a2a0332
 
 	measure Revenue = SUM(F_Order_Items[price])
 		formatString: #,0
+		displayFolder: 01_수익
 		lineageTag: faca75f7-f1bb-4a4c-a2be-4cf62ea33473
 
 	measure 'Revenue.MoM' = CALCULATE([Revenue], DATEADD(D_Calendar[Date], -1, MONTH))
+		displayFolder: 01_수익
 		lineageTag: 2cf88e61-bdbf-48ca-bcdd-053bf30c478c
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Revenue.YoY' = CALCULATE([Revenue], DATEADD(D_Calendar[Date], -1, YEAR))
+		displayFolder: 01_수익
 		lineageTag: 486accb1-4209-46ed-9702-fdec0931f93d
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Orders = DISTINCTCOUNT(F_Orders[order_id])
 		formatString: #,0
+		displayFolder: 04_주문
 		lineageTag: 8c06f3c8-cd3f-4dbb-8113-7daa26651c28
 
 	measure 'Orders.MoM%' = ```
@@ -33,10 +37,12 @@ table _Metrixs
 			    )
 			```
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 04_주문
 		lineageTag: 62ee0993-e4da-441b-9b76-3f538a9c6aa2
 
 	measure 'Revenue.QoQ' = CALCULATE([Revenue], DATEADD(D_Calendar[Date], -1, QUARTER))
 		formatString: 0
+		displayFolder: 01_수익
 		lineageTag: 27111071-5ec1-47f6-8d32-2549640f3edf
 
 	measure 'Orders.QoQ%' = ```
@@ -53,10 +59,12 @@ table _Metrixs
 			    )
 			```
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 04_주문
 		lineageTag: cbc6f4ee-5742-4f76-bf82-3e250dbe7213
 
 	measure AOV = [Revenue] / [Orders]
 		formatString: 0.0
+		displayFolder: 02_구매
 		lineageTag: 427dc0df-6697-4aa0-a726-0fd116c94275
 
 	measure 'Revenue.QoQ%' = ```
@@ -73,6 +81,7 @@ table _Metrixs
 			    )
 			```
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 01_수익
 		lineageTag: 54646f4a-d8dd-4e6c-94db-37b555de6e2d
 
 	measure 'AOV.QoQ%' = ```
@@ -89,10 +98,12 @@ table _Metrixs
 			    )
 			```
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 02_구매
 		lineageTag: f1f28d6a-7e9f-421e-9cdd-6f8551d28884
 
 	measure Customers = DISTINCTCOUNT(D_Customers[customer_unique_id])
 		formatString: #,0
+		displayFolder: 03_고객
 		lineageTag: 3b4f5b6e-497b-40d5-b462-ef054549c9ed
 
 	measure 'Customers.QoQ%' = ```
@@ -109,7 +120,96 @@ table _Metrixs
 			    )
 			```
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 03_고객
 		lineageTag: 46b34217-185e-4c58-9a2e-18faaf433e02
+
+	measure 'Reviews.AVG' = AVERAGE(F_Reviews[review_score])
+		displayFolder: 05_리뷰
+		lineageTag: d016bf27-068f-4f29-b260-d23624f65d89
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Customer.Purchasing' =
+			
+			var _title = "실제 구매 고객"
+			
+			RETURN COUNTROWS(
+			    FILTER(
+			        VALUES(D_Customers[customer_unique_id]),
+			        CALCULATE(
+			            DISTINCTCOUNT(F_Orders[order_id])
+			        ) >= 0
+			    )
+			)
+		formatString: #,0
+		displayFolder: 03_고객
+		lineageTag: 311400f2-733c-466f-b5c6-360b9ff9795c
+
+	measure 'Customer.Repeat' =
+			
+			COUNTROWS(
+			    FILTER(
+			        VALUES(D_Customers[customer_unique_id]),
+			        CALCULATE(
+			            DISTINCTCOUNT(F_Orders[order_id])
+			        ) >= 2
+			    )
+			)
+		formatString: #,0
+		displayFolder: 03_고객
+		lineageTag: 569b14e2-f244-4c83-9252-95fd0715a300
+
+	measure 'Customer.Repeat%' = DIVIDE([Customer.Repeat], [Customer.Purchasing])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 03_고객
+		lineageTag: 61e7a489-4fa5-4df8-8232-864ecb8c1fee
+
+	measure 'Logistics.Delivered.Completed' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(F_Orders[order_id]),
+			    F_Orders[order_status] = "delivered"
+			)
+		formatString: #,0
+		displayFolder: 06_배송
+		lineageTag: 2e123cf4-2968-4ee8-9cc0-261ad7254a59
+
+	measure 'Logistics.Delivered.OnTime' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(F_Orders[order_id]),
+			    FILTER(
+			        F_Orders,
+			        F_Orders[order_status] = "delivered"
+			            && NOT ISBLANK(F_Orders[order_delivered_customer_date])
+			            && NOT ISBLANK(F_Orders[order_estimated_delivery_date])
+			            && F_Orders[order_delivered_customer_date] <= F_Orders[order_estimated_delivery_date]
+			    )
+			)
+		formatString: #,0
+		displayFolder: 06_배송
+		lineageTag: 6213780f-0e03-412c-b9e6-81da43569f5d
+
+	measure 'Logistics.Delivered.OnTime%' = DIVIDE([Logistics.Delivered.OnTime], [Logistics.Delivered.Completed])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 06_배송
+		lineageTag: 5077a77f-e7cf-4061-8f19-0730b5cf0b36
+
+	measure 'Logistics.Delivered.Completed%' = DIVIDE([Logistics.Delivered.Completed], [Orders])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 06_배송
+		lineageTag: ee196fd9-4920-4d11-896f-b1ba1413f5e0
+
+	measure 'Price.Item.AVG' = AVERAGE(F_Order_Items[price])
+		displayFolder: 02_구매
+		lineageTag: c30388ce-0322-4c44-82a6-7545c8650ddc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Units.Sold' = COUNTROWS(F_Order_Items)
+		formatString: 0
+		displayFolder: 02_구매
+		lineageTag: 9180e82a-6c9e-424f-9900-abd4a0edb62d
 
 	column Column
 		isHidden
@@ -121,7 +221,7 @@ table _Metrixs
 
 		annotation SummarizationSetBy = Automatic
 
-	partition _Metrixs = calculated
+	partition _Metrix = calculated
 		mode: import
 		source = Row("Column", BLANK())
 

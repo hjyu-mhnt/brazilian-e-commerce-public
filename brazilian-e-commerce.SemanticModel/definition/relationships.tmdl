@@ -21,7 +21,7 @@ relationship AutoDetected_a4e09fb1-2a5f-4aa9-92a8-3254670a8902
 	toColumn: D_Sellers.seller_id
 
 relationship e0932fdf-abff-db91-5ac4-784bccea2abd
-	fromColumn: F_Order_Reviews.order_id
+	fromColumn: F_Reviews.order_id
 	toColumn: F_Orders.order_id
 
 relationship eb12a334-4887-b5e6-18f1-4b0f16387607

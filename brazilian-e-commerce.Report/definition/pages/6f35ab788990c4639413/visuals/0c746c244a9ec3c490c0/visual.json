@@ -4,10 +4,10 @@
   "position": {
     "x": 22,
     "y": 102,
-    "z": 2000,
+    "z": 1000,
     "height": 170,
     "width": 805,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -20,7 +20,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Metrixs"
+                      "Entity": "_Metrix"
                     }
                   },
                   "Property": "Revenue"
@@ -34,7 +34,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Metrixs"
+                      "Entity": "_Metrix"
                     }
                   },
                   "Property": "Orders"
@@ -48,7 +48,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Metrixs"
+                      "Entity": "_Metrix"
                     }
                   },
                   "Property": "AOV"
@@ -62,7 +62,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Metrixs"
+                      "Entity": "_Metrix"
                     }
                   },
                   "Property": "Customers"
@@ -81,7 +81,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Metrixs"
+                    "Entity": "_Metrix"
                   }
                 },
                 "Property": "Revenue"
@@ -187,6 +187,20 @@
           "selector": {
             "metadata": "_Metrixs.AOV"
           }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'주문 고객 수'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Customers"
+          }
         }
       ],
       "referenceLabel": [
@@ -242,7 +256,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Metrixs"
+                      "Entity": "_Metrix"
                     }
                   },
                   "Property": "Orders.QoQ%"
@@ -300,7 +314,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Metrixs"
+                      "Entity": "_Metrix"
                     }
                   },
                   "Property": "Revenue.QoQ%"
@@ -328,7 +342,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Metrixs"
+                      "Entity": "_Metrix"
                     }
                   },
                   "Property": "AOV.QoQ%"
@@ -356,7 +370,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Metrixs"
+                      "Entity": "_Metrix"
                     }
                   },
                   "Property": "Customers.QoQ%"
@@ -555,6 +569,27 @@
             "id": "field-6f59174e-6974-924a-8a20-5ea3f6b882f4"
           }
         }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -570,68 +605,21 @@
             }
           }
         }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "8ec7db544e165409aa18",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Metrixs"
-              }
-            },
-            "Property": "Revenue"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b733d801b3da0ed545b6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Metrixs"
-              }
-            },
-            "Property": "Orders"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "aac2d923482c14ae8b4d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Metrixs"
-              }
-            },
-            "Property": "AOV"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "bffd5809ed94f0f5015d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Metrixs"
-              }
-            },
-            "Property": "Customers"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
