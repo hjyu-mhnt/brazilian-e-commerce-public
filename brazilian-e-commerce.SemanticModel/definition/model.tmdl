@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["D_Customers","D_Geolocation","F_Order_Items","F_Order_Payments","F_Order_Reviews","F_Orders","D_Products","D_Sellers","product_category_name_translation"]
+annotation PBI_QueryOrder = ["D_Customers","D_Geolocation","F_Order_Items","F_Order_Payments","F_Reviews","F_Orders","D_Products","D_Sellers","product_category_name_translation"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -17,11 +17,11 @@ ref table D_Customers
 ref table D_Geolocation
 ref table F_Order_Items
 ref table F_Order_Payments
-ref table F_Order_Reviews
+ref table F_Reviews
 ref table F_Orders
 ref table D_Products
 ref table D_Sellers
-ref table _Metrixs
+ref table _Metrix
 ref table D_Calendar
 
 ref cultureInfo ko-KR

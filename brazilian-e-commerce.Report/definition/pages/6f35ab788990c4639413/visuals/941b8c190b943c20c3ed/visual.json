@@ -4,10 +4,10 @@
   "position": {
     "x": 361.02651565622915,
     "y": 17.498734177215187,
-    "z": 2001,
+    "z": 2000,
     "height": 72.7578947368421,
     "width": 403.39187208527642,
-    "tabOrder": 2001
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",
@@ -57,70 +57,11 @@
                   "Value": "1D"
                 }
               }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "D_Calendar",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "YearQtr"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'2017-Q4'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
             }
           }
         }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "94d71a2125c7c515302b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "D_Calendar"
-              }
-            },
-            "Property": "YearQtr"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

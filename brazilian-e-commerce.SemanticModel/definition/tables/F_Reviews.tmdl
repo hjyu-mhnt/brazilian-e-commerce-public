@@ -1,4 +1,4 @@
-table F_Order_Reviews
+table F_Reviews
 	lineageTag: eb7401bb-c7b8-4d64-9fbe-2fdbd637eb18
 
 	column review_id
@@ -74,7 +74,7 @@ table F_Order_Reviews
 
 		annotation SummarizationSetBy = Automatic
 
-	partition F_Order_Reviews = m
+	partition F_Reviews = m
 		mode: import
 		source =
 				let
