@@ -1,0 +1,30 @@
+relationship AutoDetected_78839298-4556-4c06-8644-175444171737
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: F_Orders.customer_id
+	toColumn: D_Customers.customer_id
+
+relationship AutoDetected_93d912e8-1a85-4761-9525-e163492f8bc8
+	fromColumn: F_Order_Items.order_id
+	toColumn: F_Orders.order_id
+
+relationship AutoDetected_bc62a436-46a8-464e-800a-d788323a41fe
+	fromColumn: F_Order_Payments.order_id
+	toColumn: F_Orders.order_id
+
+relationship AutoDetected_1ae76605-57bf-42f7-b6e0-c3e633063012
+	fromColumn: F_Order_Items.product_id
+	toColumn: D_Products.product_id
+
+relationship AutoDetected_a4e09fb1-2a5f-4aa9-92a8-3254670a8902
+	fromColumn: F_Order_Items.seller_id
+	toColumn: D_Sellers.seller_id
+
+relationship e0932fdf-abff-db91-5ac4-784bccea2abd
+	fromColumn: F_Order_Reviews.order_id
+	toColumn: F_Orders.order_id
+
+relationship eb12a334-4887-b5e6-18f1-4b0f16387607
+	fromColumn: F_Orders.order_purchase_date
+	toColumn: D_Calendar.Date
+

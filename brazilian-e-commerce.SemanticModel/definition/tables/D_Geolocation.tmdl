@@ -1,0 +1,82 @@
+table D_Geolocation
+	isHidden
+	lineageTag: ddcd5c2c-c334-42b1-b1ab-f1b9ae9d3ea1
+
+	column geolocation_zip_code_prefix
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 192aa400-0b2f-4a10-af13-2cdf3d04e590
+		summarizeBy: sum
+		sourceColumn: geolocation_zip_code_prefix
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_lat
+		dataType: double
+		isHidden
+		lineageTag: 5e36f9d4-6b14-4e74-bb03-c0f9424bbff6
+		summarizeBy: sum
+		sourceColumn: geolocation_lat
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geolocation_lng
+		dataType: double
+		isHidden
+		lineageTag: 188af929-06c0-491c-9e59-0d98f8cc441b
+		summarizeBy: sum
+		sourceColumn: geolocation_lng
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geolocation_city
+		dataType: string
+		isHidden
+		lineageTag: aa0dc5b0-4adc-4714-a22c-6c83b4980cdf
+		summarizeBy: none
+		sourceColumn: geolocation_city
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_state
+		dataType: string
+		isHidden
+		lineageTag: a04d0af5-587b-4407-a02d-076c99c2e80e
+		summarizeBy: none
+		sourceColumn: geolocation_state
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Geolocation = m
+		mode: import
+		source =
+				let
+				  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\olist_geolocation_dataset.csv"), [Delimiter = ",", Columns = 5, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars = true]),
+				  #"변경된 열 유형" = Table.TransformColumnTypes(#"승격된 헤더", {{"geolocation_zip_code_prefix", Int64.Type}, {"geolocation_lat", type number}, {"geolocation_lng", type number}, {"geolocation_city", type text}, {"geolocation_state", type text}}, "ko")
+				in
+				  #"변경된 열 유형"
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+
