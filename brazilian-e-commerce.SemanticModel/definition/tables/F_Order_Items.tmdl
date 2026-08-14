@@ -1,0 +1,81 @@
+table F_Order_Items
+	lineageTag: 2f88b209-3c16-4896-ab51-be70fc2cfac3
+
+	column order_id
+		dataType: string
+		lineageTag: b4e2df89-7186-49f0-bc26-ad94da94cb37
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a443fadc-54d7-4389-9960-cac394cc3f51
+		summarizeBy: sum
+		sourceColumn: order_item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: eef86033-6521-40dc-966f-ffe64fe3763e
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_id
+		dataType: string
+		lineageTag: 5ae061ce-8efa-4593-82de-62ee3f36c339
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_limit_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e5b0a9b2-acdd-4769-a8a3-75ddf957e357
+		summarizeBy: none
+		sourceColumn: shipping_limit_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: 7e44dce4-e7ad-44cb-91f9-9036959fd2e8
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_value
+		dataType: double
+		lineageTag: bb997e5f-7a5a-43df-9556-6e0aa3887303
+		summarizeBy: sum
+		sourceColumn: freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition F_Order_Items = m
+		mode: import
+		source =
+				let
+				  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\olist_order_items_dataset.csv"), [Delimiter = ",", Columns = 7, QuoteStyle = QuoteStyle.None]),
+				  #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars = true]),
+				  #"변경된 열 유형" = Table.TransformColumnTypes(#"승격된 헤더", {{"order_id", type text}, {"order_item_id", Int64.Type}, {"product_id", type text}, {"seller_id", type text}, {"shipping_limit_date", type datetime}, {"price", type number}, {"freight_value", type number}}, "ko")
+				in
+				  #"변경된 열 유형"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+

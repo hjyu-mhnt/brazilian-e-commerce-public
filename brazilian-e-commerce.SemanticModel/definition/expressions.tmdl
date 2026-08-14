@@ -1,0 +1,13 @@
+expression product_category_name_translation =
+		let
+		  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\product_category_name_translation.csv"), [Delimiter = ",", Columns = 2, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		    #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars=true]),
+		    #"변경된 유형" = Table.TransformColumnTypes(#"승격된 헤더",{{"product_category_name", type text}, {"product_category_name_english", type text}})
+		in
+		    #"변경된 유형"
+	lineageTag: aa45d8e8-c2fa-4bcc-9306-35cf31ae305a
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+

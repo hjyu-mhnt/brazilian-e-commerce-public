@@ -1,0 +1,61 @@
+table D_Customers
+	lineageTag: 7a9171e7-f2de-4d94-bb80-e83aeec18bc6
+
+	column customer_id
+		dataType: string
+		lineageTag: a873cf15-c176-4524-b218-3d727ce3bb68
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 04a842d0-a9d0-4468-bbf2-890eafed3a9b
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_zip_code_prefix
+		dataType: int64
+		formatString: 0
+		lineageTag: 02403552-f6f0-434a-b8fa-028ac1151e5e
+		summarizeBy: sum
+		sourceColumn: customer_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_city
+		dataType: string
+		lineageTag: 9f3d4987-776c-4311-aad6-3e4cfc2e2fe5
+		summarizeBy: none
+		sourceColumn: customer_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_state
+		dataType: string
+		lineageTag: 36538db6-852b-43cf-9043-fb74a60156bb
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Customers = m
+		mode: import
+		source =
+				let
+				  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\olist_customers_dataset.csv"), [Delimiter = ",", Columns = 5, QuoteStyle = QuoteStyle.None]),
+				  #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars = true]),
+				  #"변경된 열 유형" = Table.TransformColumnTypes(#"승격된 헤더", {{"customer_id", type text}, {"customer_unique_id", type text}, {"customer_zip_code_prefix", Int64.Type}, {"customer_city", type text}, {"customer_state", type text}}, "ko"),
+				    #"필터링된 행" = Table.SelectRows(#"변경된 열 유형", each true)
+				in
+				  #"필터링된 행"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,52 @@
+table D_Sellers
+	lineageTag: 1af7953b-99ac-4442-8763-bfaaa5be46ad
+
+	column seller_id
+		dataType: string
+		lineageTag: 2ed4eb3f-7100-4bb2-86e3-b01db11a342d
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_zip_code_prefix
+		dataType: int64
+		formatString: 0
+		lineageTag: 121c2ef0-8069-4967-8a82-09bd42ecf9e8
+		summarizeBy: none
+		sourceColumn: seller_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_city
+		dataType: string
+		lineageTag: 4c76a539-f74e-42a0-a23f-d757bbee7a49
+		summarizeBy: none
+		sourceColumn: seller_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_state
+		dataType: string
+		lineageTag: 2f04bf47-f1af-4c2a-bf89-86c9d3347d6c
+		summarizeBy: none
+		sourceColumn: seller_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Sellers = m
+		mode: import
+		source =
+				let
+				  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\olist_sellers_dataset.csv"), [Delimiter = ",", Columns = 4, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars = true]),
+				  #"변경된 열 유형" = Table.TransformColumnTypes(#"승격된 헤더", {{"seller_id", type text}, {"seller_zip_code_prefix", Int64.Type}, {"seller_city", type text}, {"seller_state", type text}}, "ko")
+				in
+				  #"변경된 열 유형"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+

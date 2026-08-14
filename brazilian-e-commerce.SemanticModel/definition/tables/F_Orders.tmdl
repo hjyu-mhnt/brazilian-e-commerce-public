@@ -1,0 +1,100 @@
+table F_Orders
+	lineageTag: 0a222ccb-c0be-474e-b569-657266add46b
+
+	column order_id
+		dataType: string
+		lineageTag: 2c934d0f-ee90-4427-bad1-e5c66f306232
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: bd6957b1-9f87-4e77-b8e2-272f2e2c1729
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_status
+		dataType: string
+		lineageTag: ca4be393-ce0a-473d-abfe-667b078e5ca3
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_purchase_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a30bd434-ff51-4100-87d7-c736379c3905
+		summarizeBy: none
+		sourceColumn: order_purchase_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_approved_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ee45db58-03c6-42df-b24e-5fded87b4294
+		summarizeBy: none
+		sourceColumn: order_approved_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_delivered_carrier_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b1800a0a-d580-4f39-9d43-60ef9a9da0f5
+		summarizeBy: none
+		sourceColumn: order_delivered_carrier_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_delivered_customer_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f0ae2fac-f289-4b71-9c98-53f1e832b123
+		summarizeBy: none
+		sourceColumn: order_delivered_customer_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_estimated_delivery_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8f5609d2-4e4a-4ce1-a3cf-01a15d644f72
+		summarizeBy: none
+		sourceColumn: order_estimated_delivery_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_purchase_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 33e7cf7e-4a16-498d-8635-84e51aa12858
+		summarizeBy: none
+		sourceColumn: order_purchase_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition F_Orders = m
+		mode: import
+		source =
+				let
+				  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\olist_orders_dataset.csv"), [Delimiter = ",", Columns = 8, QuoteStyle = QuoteStyle.None]),
+				  #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars = true]),
+				  #"변경된 열 유형" = Table.TransformColumnTypes(#"승격된 헤더", {{"order_id", type text}, {"customer_id", type text}, {"order_status", type text}, {"order_purchase_timestamp", type datetime}, {"order_approved_at", type datetime}, {"order_delivered_carrier_date", type datetime}, {"order_delivered_customer_date", type datetime}, {"order_estimated_delivery_date", type datetime}}, "ko"),
+				    #"중복된 열" = Table.DuplicateColumn(#"변경된 열 유형", "order_purchase_timestamp", "order_purchase_timestamp - 복사"),
+				    #"이름을 바꾼 열 수" = Table.RenameColumns(#"중복된 열",{{"order_purchase_timestamp - 복사", "order_purchase_date"}}),
+				    #"변경된 유형" = Table.TransformColumnTypes(#"이름을 바꾼 열 수",{{"order_purchase_date", type date}})
+				in
+				    #"변경된 유형"
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+

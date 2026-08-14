@@ -1,0 +1,75 @@
+table _Metrixs
+	lineageTag: b0b5ce07-e348-4cd2-8012-2c787a2a0332
+
+	measure Revenue = SUM(F_Order_Items[price])
+		formatString: #,0
+		lineageTag: faca75f7-f1bb-4a4c-a2be-4cf62ea33473
+
+	measure 'Revenue.MoM' = CALCULATE([Revenue], DATEADD(D_Calendar[Date], -1, MONTH))
+		lineageTag: 2cf88e61-bdbf-48ca-bcdd-053bf30c478c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue.YoY' = CALCULATE([Revenue], DATEADD(D_Calendar[Date], -1, YEAR))
+		lineageTag: 486accb1-4209-46ed-9702-fdec0931f93d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Orders = DISTINCTCOUNT(F_Orders[order_id])
+		formatString: #,0
+		lineageTag: 8c06f3c8-cd3f-4dbb-8113-7daa26651c28
+
+	measure 'Orders.MoM%' = ```
+			
+			VAR _previousMonthOrders = 
+			    CALCULATE(
+			        [Orders],
+			        DATEADD(D_Calendar[Date], -1, MONTH)
+			    )
+			RETURN 
+			    DIVIDE(
+			        [Orders] - _previousMonthOrders,
+			        _previousMonthOrders
+			    )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 62ee0993-e4da-441b-9b76-3f538a9c6aa2
+
+	measure 'Revenue.QoQ' = CALCULATE([Revenue], DATEADD(D_Calendar[Date], -1, QUARTER))
+		formatString: #,0
+		lineageTag: 27111071-5ec1-47f6-8d32-2549640f3edf
+
+	measure 'Orders.QoQ%' = ```
+			
+			VAR _previousQuarterOrders = 
+			    CALCULATE(
+			        [Orders],
+			        DATEADD(D_Calendar[Date], -1, QUARTER)
+			    )
+			RETURN 
+			    DIVIDE(
+			        [Orders] - _previousQuarterOrders,
+			        _previousQuarterOrders
+			    )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: cbc6f4ee-5742-4f76-bf82-3e250dbe7213
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 2b308790-fea8-4739-b550-1801370297ae
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Metrixs = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 9cf067469aef4c28953e7a0c3101e7bf
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

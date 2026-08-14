@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "941b8c190b943c20c3ed",
+  "position": {
+    "x": 361.02651565622915,
+    "y": 17.498734177215187,
+    "z": 2001,
+    "height": 72.7578947368421,
+    "width": 403.39187208527642,
+    "tabOrder": 2001
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "D_Calendar"
+                    }
+                  },
+                  "Property": "YearQtr"
+                }
+              },
+              "queryRef": "D_Calendar.YearQtr",
+              "nativeQueryRef": "YearQtr",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "94d71a2125c7c515302b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "D_Calendar"
+              }
+            },
+            "Property": "YearQtr"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

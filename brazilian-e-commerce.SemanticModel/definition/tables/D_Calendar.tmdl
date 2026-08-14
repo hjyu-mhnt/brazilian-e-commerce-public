@@ -1,0 +1,274 @@
+table D_Calendar
+	lineageTag: 7abc8061-24d3-4611-94a9-511020051004
+
+	column Date
+		formatString: Long Date
+		lineageTag: 464055c1-bfda-4841-a090-752cf7e25863
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		lineageTag: e31e2bf5-bf20-4281-a4fe-addbae31916c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearNum
+		formatString: 0
+		lineageTag: 3765e3fa-d191-47a0-beb5-3a0d3f4fa173
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearNum]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		lineageTag: 2589ea8d-4281-45fd-bbcc-29555b7b7a9c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthYear
+		lineageTag: 4d99ce59-6bfd-477b-a516-836965fb2c90
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMthStart
+		formatString: General Date
+		lineageTag: e0612bf6-3694-4a47-8945-c67d7daac9ae
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMthStart]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMthEnd
+		formatString: General Date
+		lineageTag: 1cb5c14c-9aed-4c14-9b99-a0924bd5843a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMthEnd]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthIndex1
+		formatString: 0
+		lineageTag: 68ccf7b9-a8b5-48e3-a6ea-02ca56e6a321
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonthIndex1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthIndex2
+		formatString: 0
+		lineageTag: 31bf7aaa-0024-4b29-a263-69e48bb4d038
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonthIndex2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: 06cf052b-b4fd-4740-ae61-6b76eda085ce
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		lineageTag: 3ff20afb-8d4f-4442-a4df-46ea50a6ef56
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNum
+		formatString: 0
+		lineageTag: ae6958bb-d3cf-4898-a4e6-08805a1e8872
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthNum]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDay
+		lineageTag: 005b1111-eb3a-4052-8c59-db0dbbf0e8db
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekDay]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDayIndex
+		formatString: 0
+		lineageTag: acb93cea-5c6a-4311-ba5d-bec880583356
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekDayIndex]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNum
+		formatString: 0
+		lineageTag: aa18ad9b-d677-40cf-ae77-13d5fd844e96
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekNum]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekIndex
+		formatString: 0
+		lineageTag: e22b64f4-2a86-4471-bab0-b87821d72e1a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekIndex]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekStartDate
+		formatString: General Date
+		lineageTag: afc11144-d924-422c-a23d-ff4c5595a87c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekStartDate]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Qtr
+		lineageTag: be47456c-8e9f-4a3e-8a19-f2f7b3f2c89b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Qtr]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearQtr
+		lineageTag: ac04ffe4-11f9-454a-92b0-611edda862ca
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearQtr]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsEndYear
+		lineageTag: f8bbcaf3-dea2-47d9-9c0c-27e798ca2165
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsEndYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsEndDate
+		lineageTag: dc108d89-ebdf-4ceb-93d1-f87392283521
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsEndDate]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsEndMth
+		lineageTag: 8458fe74-0b4e-470a-8fe9-75e63a176153
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsEndMth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBeforeEndDate
+		lineageTag: 0c98a9e4-0e9a-484e-834d-f8b8006049b4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsBeforeEndDate]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBeforeEndMth
+		lineageTag: 4d58d558-02c5-42d5-b870-7baed42ab602
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsBeforeEndMth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCYTD
+		lineageTag: 6c8932b9-eac7-40c7-a4d0-04675db95719
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsCYTD]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsInYTD_Mth
+		lineageTag: 9172e459-519e-42aa-b463-a1f0de6d62ec
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsInYTD_Mth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsInYTD_Day
+		lineageTag: 3ce4c14e-de7c-409f-8ec8-2db40c5e8777
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsInYTD_Day]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Calendar = calculated
+		mode: import
+		source = ```
+				
+				VAR _minDate = MIN(F_Orders[order_purchase_timestamp])
+				VAR _maxDate = MAX(F_Orders[order_purchase_timestamp])
+				VAR _calendar = 
+				    CALENDAR(DATE(YEAR(_minDate), 1, 1), DATE(YEAR(_maxDate), 12, 31))
+				RETURN
+				    ADDCOLUMNS (
+				        _calendar,
+				        "Year", FORMAT([Date], "YYYY"),
+				        "YearNum", YEAR([Date]),
+				        "YearMonth", FORMAT([Date], "YYYY-MM"),
+				        "MonthYear", FORMAT([Date], "MMM.YYYY"),
+				        "YearMthStart", EOMONTH([Date], -1) + 1,
+				        "YearMthEnd", EOMONTH([Date], 0),
+				        "YearMonthIndex1", (YEAR([Date]) - YEAR(_minDate)) * 12 + MONTH([Date]) - MONTH(_minDate) + 1,
+				        "YearMonthIndex2", DATEDIFF(EOMONTH(_maxDate, 0), EOMONTH([Date], 0), MONTH),
+				        "Month", FORMAT([Date], "MM"),
+				        "MonthName", FORMAT([Date], "MMM"),
+				        "MonthNum", MONTH([Date]),
+				        "WeekDay", FORMAT([Date], "DDD"),
+				        "WeekDayIndex", WEEKDAY([Date], 2),
+				        "WeekNum", WEEKNUM([Date], 1),
+				        "WeekIndex", (YEAR([Date]) - YEAR(_minDate)) * 52 + WEEKNUM([Date], 1),
+				        "WeekStartDate", [Date] - WEEKDAY([Date], 1) + 1,
+				        "Qtr", "Q" & FORMAT([Date], "Q"),
+				        "YearQtr", FORMAT([Date], "YYYY") & "-Q" & FORMAT([Date], "Q"),
+				        "IsEndYear", IF(YEAR([Date]) = YEAR(_maxDate), "Y", "N"),
+				        "IsEndDate", IF([Date] = _maxDate, "Y", "N"),
+				        "IsEndMth", IF(YEAR([Date]) = YEAR(_maxDate) && MONTH([Date]) = MONTH(_maxDate), "Y", "N"),
+				        "IsBeforeEndDate", IF([Date] <= _maxDate, "Y", "N"),
+				        "IsBeforeEndMth", IF(EOMONTH([Date], 0) <= EOMONTH(_maxDate, 0), "Y", "N"),
+				        "IsCYTD", IF(YEAR([Date]) = YEAR(_maxDate) && [Date] <= _maxDate, "Y", "N"),
+				        "IsInYTD_Mth", IF(MONTH([Date]) <= MONTH(_maxDate), "Y", "N"),
+				        "IsInYTD_Day", IF([Date] <= DATE(YEAR([Date]), MONTH(_maxDate), DAY(_maxDate)), "Y", "N")
+				    )
+				```
+
+	annotation PBI_Id = 061dfe7220884051b3d1ed66697b568f
+

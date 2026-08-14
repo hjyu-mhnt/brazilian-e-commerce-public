@@ -1,0 +1,109 @@
+table D_Products
+	lineageTag: f6b6417b-18ee-4dca-83fc-5247c9e6c643
+
+	column product_id
+		dataType: string
+		lineageTag: 8a7e3266-bec0-4202-a64e-f47d8757b9a8
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name
+		dataType: string
+		lineageTag: 0928128b-26e2-47a8-9de6-4fec0916cb1f
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name_lenght
+		dataType: int64
+		formatString: 0
+		lineageTag: f4d9aa3e-fe17-41cb-84b6-c52038c26a10
+		summarizeBy: none
+		sourceColumn: product_name_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_description_lenght
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a66b3d4-6229-428a-b91c-05c7b539fa80
+		summarizeBy: none
+		sourceColumn: product_description_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_photos_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: fecd06a5-c5e7-44b0-8346-055dd0cbee4d
+		summarizeBy: none
+		sourceColumn: product_photos_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_weight_g
+		dataType: int64
+		formatString: 0
+		lineageTag: 8715387c-570f-4eed-8117-e05f4ab9b89e
+		summarizeBy: none
+		sourceColumn: product_weight_g
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_length_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b26f18b-ca9d-4d64-b2a6-e6a8aed4e63b
+		summarizeBy: none
+		sourceColumn: product_length_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_height_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: c03f06a1-dd16-41fc-9ca5-23992db724e6
+		summarizeBy: none
+		sourceColumn: product_height_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_width_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: ead3523b-f4e6-4109-a0a9-4e30fa3a9515
+		summarizeBy: none
+		sourceColumn: product_width_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name_english
+		dataType: string
+		lineageTag: 1bbed58a-ffe7-480e-868b-8272f98807e8
+		summarizeBy: none
+		sourceColumn: product_category_name_english
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_Products = m
+		mode: import
+		source =
+				let
+				  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\olist_products_dataset.csv"), [Delimiter = ",", Columns = 9, QuoteStyle = QuoteStyle.None]),
+				  #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars = true]),
+				  #"변경된 열 유형" = Table.TransformColumnTypes(#"승격된 헤더", {{"product_id", type text}, {"product_category_name", type text}, {"product_name_lenght", Int64.Type}, {"product_description_lenght", Int64.Type}, {"product_photos_qty", Int64.Type}, {"product_weight_g", Int64.Type}, {"product_length_cm", Int64.Type}, {"product_height_cm", Int64.Type}, {"product_width_cm", Int64.Type}}, "ko"),
+				    #"병합된 쿼리" = Table.NestedJoin(#"변경된 열 유형", {"product_category_name"}, product_category_name_translation, {"product_category_name"}, "product_category_name_translation", JoinKind.LeftOuter),
+				    #"확장된 product_category_name_translation" = Table.ExpandTableColumn(#"병합된 쿼리", "product_category_name_translation", {"product_category_name_english"}, {"product_category_name_translation.product_category_name_english"}),
+				    #"이름을 바꾼 열 수" = Table.RenameColumns(#"확장된 product_category_name_translation",{{"product_category_name_translation.product_category_name_english", "product_category_name_english"}})
+				in
+				  #"이름을 바꾼 열 수"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,94 @@
+table F_Order_Reviews
+	lineageTag: eb7401bb-c7b8-4d64-9fbe-2fdbd637eb18
+
+	column review_id
+		dataType: string
+		lineageTag: 8086650a-d031-47f4-852e-bfb82037b4d9
+		summarizeBy: none
+		sourceColumn: review_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: 3d37fd71-64d5-4eff-a8c0-ca9aa265e055
+		summarizeBy: none
+		sourceColumn: order_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 511e5705-03e2-4bac-a4ee-85b23dce7d32
+		summarizeBy: sum
+		sourceColumn: review_score
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_comment_title
+		dataType: string
+		lineageTag: ad11aadb-707d-4d28-9c7b-82438eba4f7c
+		summarizeBy: none
+		sourceColumn: review_comment_title
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_comment_message
+		dataType: string
+		lineageTag: 2f41adaf-0074-44ff-b18e-e76d6a59f791
+		summarizeBy: none
+		sourceColumn: review_comment_message
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_creation_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ea0c7da1-1fcb-4bb5-a086-64143d7e9bff
+		summarizeBy: none
+		sourceColumn: review_creation_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_answer_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 051c9957-af68-4c97-b737-4feaf00b9af5
+		summarizeBy: none
+		sourceColumn: review_answer_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Order_Reviews = m
+		mode: import
+		source =
+				let
+				  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\olist_order_reviews_dataset.csv"), [Delimiter = ",", Columns = 7, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				  #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars = true]),
+				  #"변경된 열 유형" = Table.TransformColumnTypes(#"승격된 헤더", {{"review_id", type text}, {"order_id", type text}, {"review_score", Int64.Type}, {"review_comment_title", type text}, {"review_comment_message", type text}, {"review_creation_date", type datetime}, {"review_answer_timestamp", type datetime}}, "ko")
+				in
+				  #"변경된 열 유형"
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+

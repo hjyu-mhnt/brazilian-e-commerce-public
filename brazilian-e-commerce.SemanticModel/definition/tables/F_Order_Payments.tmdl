@@ -1,0 +1,76 @@
+table F_Order_Payments
+	lineageTag: 8c2fec73-c28e-40d5-9250-5ad69265f020
+
+	column order_id
+		dataType: string
+		lineageTag: a3c1a771-8031-4ff5-80e2-626bffd75cfe
+		summarizeBy: none
+		sourceColumn: order_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_sequential
+		dataType: int64
+		formatString: 0
+		lineageTag: 40294f12-2413-4ed2-a031-f478e821d10f
+		summarizeBy: sum
+		sourceColumn: payment_sequential
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_type
+		dataType: string
+		lineageTag: b29fefaf-9ed5-49c1-8f4e-a80eb80a26aa
+		summarizeBy: none
+		sourceColumn: payment_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_installments
+		dataType: int64
+		formatString: 0
+		lineageTag: 8833cd3e-cc72-4dde-95d5-c464affb9842
+		summarizeBy: sum
+		sourceColumn: payment_installments
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_value
+		dataType: double
+		lineageTag: 8b744cc3-4889-4a4a-955a-413444c0e1f7
+		summarizeBy: sum
+		sourceColumn: payment_value
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition F_Order_Payments = m
+		mode: import
+		source =
+				let
+				  소스 = Csv.Document(File.Contents("C:\Users\hjyu\OneDrive\Desktop\power bi\brazilian-e-commerce-dataset\olist_order_payments_dataset.csv"), [Delimiter = ",", Columns = 5, QuoteStyle = QuoteStyle.None]),
+				  #"승격된 헤더" = Table.PromoteHeaders(소스, [PromoteAllScalars = true]),
+				  #"변경된 열 유형" = Table.TransformColumnTypes(#"승격된 헤더", {{"order_id", type text}, {"payment_sequential", Int64.Type}, {"payment_type", type text}, {"payment_installments", Int64.Type}, {"payment_value", type number}}, "ko"),
+				    #"필터링된 행" = Table.SelectRows(#"변경된 열 유형", each true)
+				in
+				  #"필터링된 행"
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = 탐색
+
+	annotation PBI_ResultType = Table
+
