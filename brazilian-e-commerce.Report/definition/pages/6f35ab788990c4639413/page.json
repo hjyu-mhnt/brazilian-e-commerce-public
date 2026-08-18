@@ -31,5 +31,17 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "941b8c190b943c20c3ed",
+      "target": "a946528b6031a0305064",
+      "type": "NoFilter"
+    },
+    {
+      "source": "941b8c190b943c20c3ed",
+      "target": "22ac67d1a7e656d4c3d7",
+      "type": "NoFilter"
+    }
+  ]
 }
