@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "ba6c5762ca54fc5577ec",
+  "name": "46c8281216bf025f52f9",
   "position": {
-    "x": 1318.3333333333335,
-    "y": 293.33333333333337,
-    "z": 8003,
-    "height": 755,
-    "width": 583.33333333333337,
-    "tabOrder": 8003
+    "x": 1337.2716855429712,
+    "y": 291.95256495669548,
+    "z": 9002,
+    "height": 749.68261159227177,
+    "width": 561.80146568954024,
+    "tabOrder": 9002
   },
   "visual": {
     "visualType": "scatterChart",
@@ -61,13 +61,12 @@
                       "Entity": "_Metrix"
                     }
                   },
-                  "Property": "Price.Item.AVG"
+                  "Property": "Revenue.QoQ%"
                 }
               },
-              "queryRef": "_Metrix.Price.Item.AVG",
-              "nativeQueryRef": "평균 상품 단가",
-              "active": true,
-              "displayName": "평균 상품 단가"
+              "queryRef": "_Metrix.Revenue.QoQ%",
+              "nativeQueryRef": "Revenue.QoQ%",
+              "active": true
             }
           ]
         },
@@ -138,6 +137,76 @@
             }
           }
         }
+      ],
+      "referenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'평균 선 1'"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Aggregation": {
+                  "Expression": {
+                    "SelectRef": {
+                      "ExpressionName": "_Metrix.Revenue"
+                    }
+                  },
+                  "Function": 1
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Revenue",
+            "id": "1"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'평균 선 2'"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Aggregation": {
+                  "Expression": {
+                    "SelectRef": {
+                      "ExpressionName": "_Metrix.Revenue.QoQ%"
+                    }
+                  },
+                  "Function": 1
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Revenue.QoQ%",
+            "id": "2"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -169,5 +238,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8c7f126cbc1821aec163",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "D_Products"
+              }
+            },
+            "Property": "product_category_name_english"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c995b17f4c12d4d05bfb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrix"
+              }
+            },
+            "Property": "Items.perOrder"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "93639d7139e6d696594c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrix"
+              }
+            },
+            "Property": "Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a82c85efaa6c8af52dbc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrix"
+              }
+            },
+            "Property": "Revenue.QoQ%"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

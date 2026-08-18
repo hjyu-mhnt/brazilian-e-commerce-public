@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "ba6c5762ca54fc5577ec",
+  "name": "eddab68de032085bca27",
   "position": {
-    "x": 1318.3333333333335,
-    "y": 293.33333333333337,
-    "z": 8003,
-    "height": 755,
-    "width": 583.33333333333337,
-    "tabOrder": 8003
+    "x": 847.30712858094591,
+    "y": 102.22944703530979,
+    "z": 9004,
+    "height": 521.27808127914716,
+    "width": 471.54483677548296,
+    "tabOrder": 9004
   },
   "visual": {
     "visualType": "scatterChart",
@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "D_Products.product_category_name_english",
-              "nativeQueryRef": "카테고리",
-              "displayName": "카테고리"
+              "nativeQueryRef": "product_category_name_english"
             }
           ]
         },
@@ -42,12 +41,11 @@
                       "Entity": "_Metrix"
                     }
                   },
-                  "Property": "Items.perOrder"
+                  "Property": "Revenue"
                 }
               },
-              "queryRef": "_Metrix.Units.Sold",
-              "nativeQueryRef": "판매 갯수",
-              "displayName": "판매 갯수"
+              "queryRef": "_Metrix.Revenue",
+              "nativeQueryRef": "Revenue"
             }
           ]
         },
@@ -61,13 +59,12 @@
                       "Entity": "_Metrix"
                     }
                   },
-                  "Property": "Price.Item.AVG"
+                  "Property": "Item.Price.AVG"
                 }
               },
-              "queryRef": "_Metrix.Price.Item.AVG",
-              "nativeQueryRef": "평균 상품 단가",
-              "active": true,
-              "displayName": "평균 상품 단가"
+              "queryRef": "_Metrix.Item.Price.AVG",
+              "nativeQueryRef": "Item.Price.AVG",
+              "active": true
             }
           ]
         },
@@ -81,44 +78,17 @@
                       "Entity": "_Metrix"
                     }
                   },
-                  "Property": "Revenue"
+                  "Property": "Items.perOrder"
                 }
               },
-              "queryRef": "_Metrix.Revenue",
-              "nativeQueryRef": "매출",
-              "displayName": "매출"
+              "queryRef": "_Metrix.Items.perOrder",
+              "nativeQueryRef": "Items.perOrder"
             }
           ]
         }
       }
     },
     "objects": {
-      "valueAxis": [
-        {
-          "properties": {
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'매출'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'평균 상품 단가'"
-                }
-              }
-            }
-          }
-        }
-      ],
       "legend": [
         {
           "properties": {
@@ -147,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'카테고리별 평균 상품 단가와 매출 기여도'"
+                  "Value": "'카테고리별 판매량 및 평균 단가 분석'"
                 }
               }
             }
@@ -157,10 +127,10 @@
       "subTitle": [
         {
           "properties": {
-            "text": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'버블의 크기는 구매 갯수 '"
+                  "Value": "false"
                 }
               }
             }

@@ -6712,6 +6712,26 @@ cultureInfo ko-KR
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "이번 분기 수익률": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "수익": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -7092,6 +7112,26 @@ cultureInfo ko-KR
 			            },
 			            "Weight": 0.591
 			          }
+			        },
+			        {
+			          "이전 분기 수익률": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "전분기 수익": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -7219,6 +7259,16 @@ cultureInfo ko-KR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "성장률": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -10153,28 +10203,18 @@ cultureInfo ko-KR
 			        }
 			      ]
 			    },
-			    "entity__metrix.units_sold": {
+			    "entity__metrix.items_perOrder": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Metrix",
-			          "ConceptualProperty": "Units.Sold"
+			          "ConceptualProperty": "Items.perOrder"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "units.sold": {
+			          "items.perOrder": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "unit .sold": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.677
 			          }
 			        },
 			        {
@@ -10188,9 +10228,519 @@ cultureInfo ko-KR
 			          }
 			        }
 			      ]
+			    },
+			    "entity__metrix.items_per_order_AVG": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Metrix",
+			          "ConceptualProperty": "Items.perOrder.AVG"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "items per order AVG": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Items.perOrder.AVG": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "item per order average": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "substance per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "thing per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "matter per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "stuff per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "object per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "entries per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "element per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "article per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "piece per order avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        }
+			      ]
+			    },
+			    "entity__metrix.revenue_contribution_category": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Metrix",
+			          "ConceptualProperty": "Revenue.Contribution.Category"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "revenue.contribution.category": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "revenue.contribution. classification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "revenue.contribution. class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "revenue.contribution. group": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "revenue.contribution. type": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "revenue.contribution. grouping": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "revenue.contribution. kind": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "income .contribution.category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "profit .contribution.category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "turnover .contribution.category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "yield .contribution.category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "기여도": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__metrix.item_price_AVG": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Metrix",
+			          "ConceptualProperty": "Item.Price.AVG"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "item price AVG": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Item.Price.AVG": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "price AVG": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "item price average": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "price average": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "product price avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "element price avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "entry price avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "article price avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "object price avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "piece price avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "token price avg": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "평균 단가": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "F_order_item_has_entity__metrix_items_per_order_AVG": {
+			      "Binding": {
+			        "ConceptualEntity": "F_Order_Items"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "F_order_item": {
+			          "Target": {
+			            "Entity": "F_order_item"
+			          }
+			        },
+			        "entity__metrix.items_per_order_AVG": {
+			          "Target": {
+			            "Entity": "entity__metrix.items_per_order_AVG"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "F_order_item"
+			            },
+			            "Object": {
+			              "Role": "entity__metrix.items_per_order_AVG"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "F_order_items_have_items_per_order_AVG"
+			        }
+			      ]
+			    },
+			    "F_order_item_has_entity__metrix_items_perOrder": {
+			      "Binding": {
+			        "ConceptualEntity": "F_Order_Items"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "F_order_item": {
+			          "Target": {
+			            "Entity": "F_order_item"
+			          }
+			        },
+			        "entity__metrix.items_perOrder": {
+			          "Target": {
+			            "Entity": "entity__metrix.items_perOrder"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "F_order_item"
+			            },
+			            "Object": {
+			              "Role": "entity__metrix.items_perOrder"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "F_order_items_have_items_perOrder"
+			        }
+			      ]
+			    },
+			    "F_order_item_has_entity__metrix_price_item_AVG": {
+			      "Binding": {
+			        "ConceptualEntity": "F_Order_Items"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "F_order_item": {
+			          "Target": {
+			            "Entity": "F_order_item"
+			          }
+			        },
+			        "entity__metrix.price_item_AVG": {
+			          "Target": {
+			            "Entity": "entity__metrix.price_item_AVG"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "F_order_item"
+			            },
+			            "Object": {
+			              "Role": "entity__metrix.price_item_AVG"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "F_order_items_have_price_item_AVG"
+			        }
+			      ]
+			    },
+			    "F_order_has_entity__metrix_logistics_delivered_completed1": {
+			      "Binding": {
+			        "ConceptualEntity": "F_Orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "F_order": {
+			          "Target": {
+			            "Entity": "F_order"
+			          }
+			        },
+			        "entity__metrix.logistics_delivered_completed1": {
+			          "Target": {
+			            "Entity": "entity__metrix.logistics_delivered_completed1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "F_order"
+			            },
+			            "Object": {
+			              "Role": "entity__metrix.logistics_delivered_completed1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "F_orders_have_logistics_delivered_completed"
+			        }
+			      ]
+			    },
 			    "F_order_has_entity__metrix_logistics_delivered_OnTime1": {
 			      "Binding": {
 			        "ConceptualEntity": "F_Orders"
@@ -10286,7 +10836,7 @@ cultureInfo ko-KR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "F_orders_have_logistics_delivered_completed"
+			          "ID": "F_orders_have_logistics_delivered_completed1"
 			        }
 			      ]
 			    },
@@ -13984,7 +14534,7 @@ cultureInfo ko-KR
 			        }
 			      ]
 			    },
-			    "F_order_has_entity__metrix_logistics_delivered_completed1": {
+			    "F_order_has_entity__metrix_items_per_order_AVG": {
 			      "Binding": {
 			        "ConceptualEntity": "F_Orders"
 			      },
@@ -13995,9 +14545,9 @@ cultureInfo ko-KR
 			            "Entity": "F_order"
 			          }
 			        },
-			        "entity__metrix.logistics_delivered_completed1": {
+			        "entity__metrix.items_per_order_AVG": {
 			          "Target": {
-			            "Entity": "entity__metrix.logistics_delivered_completed1"
+			            "Entity": "entity__metrix.items_per_order_AVG"
 			          }
 			        }
 			      },
@@ -14008,16 +14558,16 @@ cultureInfo ko-KR
 			              "Role": "F_order"
 			            },
 			            "Object": {
-			              "Role": "entity__metrix.logistics_delivered_completed1"
+			              "Role": "entity__metrix.items_per_order_AVG"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "F_orders_have_logistics_delivered_completed1"
+			          "ID": "F_orders_have_items_per_order_AVG"
 			        }
 			      ]
 			    },
-			    "F_order_item_has_entity__metrix_price_item_AVG": {
+			    "F_order_item_has_entity__metrix_revenue_contribution_category": {
 			      "Binding": {
 			        "ConceptualEntity": "F_Order_Items"
 			      },
@@ -14028,9 +14578,9 @@ cultureInfo ko-KR
 			            "Entity": "F_order_item"
 			          }
 			        },
-			        "entity__metrix.price_item_AVG": {
+			        "entity__metrix.revenue_contribution_category": {
 			          "Target": {
-			            "Entity": "entity__metrix.price_item_AVG"
+			            "Entity": "entity__metrix.revenue_contribution_category"
 			          }
 			        }
 			      },
@@ -14041,16 +14591,16 @@ cultureInfo ko-KR
 			              "Role": "F_order_item"
 			            },
 			            "Object": {
-			              "Role": "entity__metrix.price_item_AVG"
+			              "Role": "entity__metrix.revenue_contribution_category"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "F_order_items_have_price_item_AVG"
+			          "ID": "F_order_items_have_revenue_contribution_category"
 			        }
 			      ]
 			    },
-			    "F_order_item_has_entity__metrix_units_sold": {
+			    "F_order_item_has_entity__metrix_item_price_AVG": {
 			      "Binding": {
 			        "ConceptualEntity": "F_Order_Items"
 			      },
@@ -14061,9 +14611,9 @@ cultureInfo ko-KR
 			            "Entity": "F_order_item"
 			          }
 			        },
-			        "entity__metrix.units_sold": {
+			        "entity__metrix.item_price_AVG": {
 			          "Target": {
-			            "Entity": "entity__metrix.units_sold"
+			            "Entity": "entity__metrix.item_price_AVG"
 			          }
 			        }
 			      },
@@ -14074,12 +14624,12 @@ cultureInfo ko-KR
 			              "Role": "F_order_item"
 			            },
 			            "Object": {
-			              "Role": "entity__metrix.units_sold"
+			              "Role": "entity__metrix.item_price_AVG"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "F_order_items_have_units_sold"
+			          "ID": "F_order_items_have_item_price_AVG"
 			        }
 			      ]
 			    },

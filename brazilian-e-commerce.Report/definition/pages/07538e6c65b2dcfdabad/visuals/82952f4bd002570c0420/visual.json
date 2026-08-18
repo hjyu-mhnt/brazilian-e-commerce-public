@@ -1,0 +1,611 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "82952f4bd002570c0420",
+  "position": {
+    "x": 22,
+    "y": 102,
+    "z": 1000,
+    "height": 170,
+    "width": 805,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Revenue"
+                }
+              },
+              "queryRef": "_Metrixs.Revenue",
+              "nativeQueryRef": "Revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Orders"
+                }
+              },
+              "queryRef": "_Metrixs.Orders",
+              "nativeQueryRef": "Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "AOV"
+                }
+              },
+              "queryRef": "_Metrixs.AOV",
+              "nativeQueryRef": "AOV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Items.perOrder"
+                }
+              },
+              "queryRef": "_Metrix.Units.Sold",
+              "nativeQueryRef": "Items.perOrder"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Metrix"
+                  }
+                },
+                "Property": "Revenue"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Revenue"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Orders"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'aboveValue'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'매출 성과'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Revenue"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'주문건수'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Orders"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'평균 주문 금액'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.AOV"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'물건 구매 횟수'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Units.Sold"
+          }
+        }
+      ],
+      "referenceLabel": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-e0886584-82d5-2bf2-e660-93dfb1474e3b",
+            "order": 0
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Orders",
+            "id": "field-e5558ba4-df98-3ea9-b212-5c850586e2bb",
+            "order": 0
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Orders",
+            "id": "field-9aa30962-4888-3db4-b104-10940eefcd0d",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Orders.QoQ%"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Orders",
+            "id": "field-86276bcc-de0c-445d-96ad-a35aebff5566",
+            "order": 0
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-33bbc5ff-183a-15e3-afa9-1b23f12fe5ec",
+            "order": 0
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-d8b678f4-f594-4200-e428-2712b75f2472",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Revenue.QoQ%"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-7fcbcc81-2b7e-a606-cea4-84213df31d88",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "AOV.QoQ%"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrixs.AOV",
+            "id": "field-bad6924c-8d4a-a8f0-8430-d2d4b1f21f5f",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Items.perOrder.AVG"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Metrix.Units.Sold",
+            "id": "field-e0f671b2-ec2f-6d34-11c6-2de30ef89be3",
+            "order": 0
+          }
+        }
+      ],
+      "referenceLabelTitle": [
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'전월 대비 증감율'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-e0886584-82d5-2bf2-e660-93dfb1474e3b"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'전월 대비 증감율'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Orders",
+            "id": "field-e5558ba4-df98-3ea9-b212-5c850586e2bb"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-33bbc5ff-183a-15e3-afa9-1b23f12fe5ec"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Orders",
+            "id": "field-86276bcc-de0c-445d-96ad-a35aebff5566"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-d8b678f4-f594-4200-e428-2712b75f2472"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Revenue",
+            "id": "field-7fcbcc81-2b7e-a606-cea4-84213df31d88"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'직전 분기 증감률'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.AOV",
+            "id": "field-bad6924c-8d4a-a8f0-8430-d2d4b1f21f5f"
+          }
+        },
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'평균 구매 수량'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrix.Units.Sold",
+            "id": "field-e0f671b2-ec2f-6d34-11c6-2de30ef89be3"
+          }
+        }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

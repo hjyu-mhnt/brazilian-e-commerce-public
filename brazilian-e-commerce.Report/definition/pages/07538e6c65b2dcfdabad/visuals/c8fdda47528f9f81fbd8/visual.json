@@ -1,0 +1,147 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "c8fdda47528f9f81fbd8",
+  "position": {
+    "x": 847.30712858094591,
+    "y": 639.1642904730179,
+    "z": 9003,
+    "height": 402.47088607594935,
+    "width": 471.54483677548296,
+    "tabOrder": 9003
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "D_Products"
+                    }
+                  },
+                  "Property": "product_category_name_english"
+                }
+              },
+              "queryRef": "D_Products.product_category_name_english",
+              "nativeQueryRef": "카테고리",
+              "displayName": "카테고리"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Items.perOrder"
+                }
+              },
+              "queryRef": "_Metrix.Units.Sold",
+              "nativeQueryRef": "판매 갯수",
+              "displayName": "판매 갯수"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Item.Price.AVG"
+                }
+              },
+              "queryRef": "_Metrix.Item.Price.AVG",
+              "nativeQueryRef": "평균 단가",
+              "displayName": "평균 단가"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Metrix"
+                  }
+                },
+                "Property": "Items.perOrder"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'카테고리 수익 요인 분석'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c1af9b89dc73108a628d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "D_Products"
+              }
+            },
+            "Property": "product_category_name_english"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c868ef1cbf94dc8b099f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrix"
+              }
+            },
+            "Property": "Items.perOrder"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5ced7daeb21e91685a37",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Metrix"
+              }
+            },
+            "Property": "Item.Price.AVG"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

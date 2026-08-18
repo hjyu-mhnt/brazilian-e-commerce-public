@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "b2c673b130670ca6ff14",
+  "position": {
+    "x": 1337.2716855429712,
+    "y": 102.22944703530979,
+    "z": 6000,
+    "height": 170.38241172551631,
+    "width": 561.80146568954024,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Customer.Repeat"
+                }
+              },
+              "queryRef": "_Metrixs.Customer.Repeat",
+              "nativeQueryRef": "재구매 고객 수",
+              "displayName": "재구매 고객 수"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Metrix"
+                    }
+                  },
+                  "Property": "Customer.Repeat%"
+                }
+              },
+              "queryRef": "_Metrixs.Customer.Repeat%",
+              "nativeQueryRef": "Customer.Repeat%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Metrix"
+                  }
+                },
+                "Property": "Customer.Repeat"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Customer.Repeat"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'구매 고객 중 재구매 비율'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Metrixs.Customer.Repeat%"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

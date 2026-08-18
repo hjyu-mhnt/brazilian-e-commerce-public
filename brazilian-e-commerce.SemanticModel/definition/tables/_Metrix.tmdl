@@ -41,7 +41,7 @@ table _Metrix
 		lineageTag: 62ee0993-e4da-441b-9b76-3f538a9c6aa2
 
 	measure 'Revenue.QoQ' = CALCULATE([Revenue], DATEADD(D_Calendar[Date], -1, QUARTER))
-		formatString: 0
+		formatString: #,0
 		displayFolder: 01_수익
 		lineageTag: 27111071-5ec1-47f6-8d32-2549640f3edf
 
@@ -206,10 +206,33 @@ table _Metrix
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Units.Sold' = COUNTROWS(F_Order_Items)
+	measure 'Items.perOrder' = COUNTROWS(F_Order_Items)
 		formatString: 0
 		displayFolder: 02_구매
 		lineageTag: 9180e82a-6c9e-424f-9900-abd4a0edb62d
+
+	measure 'Items.perOrder.AVG' = DIVIDE([Items.perOrder], [Orders])
+		formatString: #,0.00
+		displayFolder: 02_구매
+		lineageTag: 906314d7-b343-4313-b5f9-96c32ed902cf
+
+	measure 'Revenue.Contribution.Category' =
+			DIVIDE(
+			    [Revenue],
+			    CALCULATE(
+			        [Revenue],
+			        REMOVEFILTERS(D_Products[product_category_name_english])
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 01_수익
+		lineageTag: 4ecd1f3b-edf0-422e-9f87-f6e6f98f1cc8
+
+	measure 'Item.Price.AVG' = DIVIDE([Revenue], [Items.perOrder])
+		displayFolder: 02_구매
+		lineageTag: 03004080-3797-49fd-8b50-e2139ddb6757
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Column
 		isHidden

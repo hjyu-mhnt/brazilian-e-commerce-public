@@ -1,0 +1,7 @@
+role '상파울루 지사'
+	modelPermission: read
+
+	tablePermission D_Customers = D_Customers[customer_state] = "SP"
+
+	annotation PBI_Id = 76c036cabef64b689f73070813ed2bc3
+
