@@ -25,6 +25,8 @@ ref table _Metrix
 ref table D_Calendar
 
 ref role '상파울루 지사'
+ref role '리우데자네이루 지사'
+ref role '미나스제라이스 지사'
 
 ref cultureInfo ko-KR
 

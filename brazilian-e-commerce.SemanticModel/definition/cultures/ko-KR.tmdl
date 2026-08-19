@@ -6714,7 +6714,7 @@ cultureInfo ko-KR
 			          }
 			        },
 			        {
-			          "이번 분기 수익률": {
+			          "수익": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -6724,7 +6724,7 @@ cultureInfo ko-KR
 			          }
 			        },
 			        {
-			          "수익": {
+			          "이번 분기 수익률": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -7114,7 +7114,7 @@ cultureInfo ko-KR
 			          }
 			        },
 			        {
-			          "이전 분기 수익률": {
+			          "전분기 수익": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -7124,7 +7124,7 @@ cultureInfo ko-KR
 			          }
 			        },
 			        {
-			          "전분기 수익": {
+			          "이전 분기 수익률": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

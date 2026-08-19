@@ -1,0 +1,7 @@
+role '리우데자네이루 지사'
+	modelPermission: read
+
+	tablePermission D_Customers = [customer_state] == "RJ"
+
+	annotation PBI_Id = ddc21a2a7abc4f1b8ec7d5ea90547d1c
+

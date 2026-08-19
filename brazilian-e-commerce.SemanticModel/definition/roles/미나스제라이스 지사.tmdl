@@ -1,0 +1,7 @@
+role '미나스제라이스 지사'
+	modelPermission: read
+
+	tablePermission D_Customers = [customer_state] == "MG"
+
+	annotation PBI_Id = 67f63cc880ff4acb99d9cb3c25aecefd
+
